@@ -20,12 +20,12 @@
 
 buildPythonPackage rec {
   pname = "flit";
-  version = "1.3";
+  version = "2.1.0";
   disabled = !isPy3k;
 
   src = fetchPypi {
     inherit pname version;
-    sha256 = "6f6f0fb83c51ffa3a150fa41b5ac118df9ea4a87c2c06dff4ebf9adbe7b52b36";
+    sha256 = "6c954c3ec4e87a84fac55cca1a1d692a39354affa7c791eb49f6631b71ddbb40";
   };
 
   propagatedBuildInputs = [ docutils requests requests_download pytoml ]
