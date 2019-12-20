@@ -12,14 +12,19 @@
 
 buildPythonPackage rec {
   pname = "botocore";
-  version = "1.13.42"; # N.B: if you change this, change boto3 and awscli to a matching version
+  version = "1.13.43"; # N.B: if you change this, change boto3 and awscli to a matching version
 
   src = fetchPypi {
     inherit pname version;
-    sha256 = "9315d0e1940c3f860d21caaa23ab656f8c86ff2f700ac89e85894266bcd8fabf";
+    sha256 = "1lpb3wc2psmnhdacbmwg74g190qdrj0y72r12jjk0rwp8j711hjs";
   };
 
   outputs = [ "out" "dev" ];
+
+  # they need to figure out how to update setuptools
+  postPatch = ''
+    sed -i 's/python-dateutil>=2.1,<2.8.1/python-dateutil~=2.1/g' setup.py
+  '';
 
   propagatedBuildInputs = [
     dateutil
