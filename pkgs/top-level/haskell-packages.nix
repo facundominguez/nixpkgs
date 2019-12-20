@@ -68,6 +68,12 @@ in {
       buildLlvmPackages = buildPackages.llvmPackages_6;
       llvmPackages = pkgs.llvmPackages_6;
     };
+    ghcLinearTypes191220 = callPackage ../development/compilers/ghc/linear-types-191220.nix {
+      bootPkgs = packages.ghc863Binary;
+      inherit (buildPackages.python3Packages) sphinx;
+      buildLlvmPackages = buildPackages.llvmPackages_6;
+      llvmPackages = pkgs.llvmPackages_6;
+    };
     ghcjs = compiler.ghcjs86;
     ghcjs86 = callPackage ../development/compilers/ghcjs-ng {
       bootPkgs = packages.ghc865;
